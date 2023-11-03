@@ -1,0 +1,58 @@
+{
+  "name": "noyglish-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production nodemon ./src/app.js",
+    "dev": "cross-env NODE_ENV=development  nodemon ./src/app.js",
+    "fiddler": "cross-env http_proxy=http://127.0.0.1:8888 https_proxy=http://127.0.0.1:8888 NODE_ENV=development nodemon ./src/app.js",
+    "test": "mocha --recursive tests/",
+    "lint": "eslint src/**/*.js",
+    "prettify": "prettier --write src/**/*.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/app.js",
+    "docs": "swagger-jsdoc -d swaggerDef.js -o swagger.json",
+    "precommit": "npm run lint && npm run test",
+    "prod": "npm run build && npm run serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "babel": "^6.23.0",
+    "bcrypt": "^5.1.0",
+    "chai": "^4.3.7",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.47.0",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "mocha": "^10.2.0",
+    "moment": "^2.29.4",
+    "mongodb": "^6.0.0",
+    "mongoose": "^7.4.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.2",
+    "prettier": "^3.0.1",
+    "sequelize": "^6.32.1",
+    "sinon": "^15.2.0",
+    "supertest": "^6.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
